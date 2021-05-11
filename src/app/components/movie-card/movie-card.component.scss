@@ -27,7 +27,7 @@ $width-sizes: (
     .img-col {
         width: map-get($width-sizes, "left-col");
         position: relative;
-        height: 233px;
+        height: inherit;;
         overflow: hidden;
         background-color: $medium-gray;
         img {
