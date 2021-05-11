@@ -1,0 +1,45 @@
+
+<div class="card" *ngIf="this.movie">
+    <div class="img-col">
+        <img [src]="this.movie.Poster" onerror="this.onerror=null;this.src='./../../assets/images/movie-default.png'"  >
+    </div>
+    <div class="right-col">
+        <div class="detail-col">
+            <div class="title">
+                {{this.movie.Title}}
+            </div>
+            <div class="movie-label" *ngIf="this.movie.Plot">
+                Plot
+            </div>
+            <div class="movie-description" *ngIf="this.movie.Plot">
+                {{this.movie.Plot}}
+            </div>
+            <div class="movie-label" *ngIf="this.movie.Actors">
+                Actors
+            </div>
+            <div class="movie-description" *ngIf="this.movie.Actors">
+                {{this.movie.Actors}}
+            </div>
+            <div class="movie-label"
+                *ngIf="this.movie.Ratings && this.movie.Ratings.length > 0">
+                Ratings
+            </div>
+            <div class="movie-description" *ngFor="let rating of this.movie.Ratings ">
+                - <span *ngIf="rating.Source">
+                    {{rating.Source}}</span>
+                <span *ngIf="rating.Value">
+                    : {{rating.Value}}
+                </span>
+            </div>
+
+        </div>
+        <div class="bottom-col">
+            <span class="lbl">{{this.movie.Year}}</span>
+            <button *ngIf="!this.movie.isDetailed" class="detail-btn" (click)="getMovieDetails(this.movie.imdbID)">
+                DETAILS
+            </button>
+
+        </div>
+    </div>
+
+</div>

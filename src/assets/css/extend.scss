@@ -1,0 +1,101 @@
+/**
+ * @description: Main extend style sheet
+ * @author: windya yasas
+ */
+
+@import "./colors.scss";
+
+//Defined font weights
+$font-weights: (
+    "regular": 400,
+    "medium": 600,
+    "bold": 700,
+);
+/**
+* Heading related styles
+*/
+%header-col {
+    width: 100%;
+    background-color: $header-bg-white;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 3px 6px 0px $gray;
+    .header-mid {
+        width: 1000px;
+        margin: auto;
+        padding: 0px 15px 0px 10px;
+        display: flex;
+        .title {
+            font-weight: map-get($font-weights, "medium");
+            font-size: 27px;
+            color: $ft-black;
+            margin: 0px;
+            width: calc(100% - 372px);
+            @media (max-width: 992px) {
+                width: calc(100% - 205px);
+            }
+        }
+        .search-col {
+            label {
+                font-size: 16px;
+                color: $ft-black;
+                font-weight: map-get($font-weights, "medium");
+            }
+            .text-input {
+                border: 0px;
+                margin: 0px 15px 0px 10px;
+                border-bottom: 1px solid $light-gray;
+                width: 145px;
+                height: 25px;
+                font-weight: map-get($font-weights, "medium");
+                font-size: 12px;
+                color: $ft-black;
+                &:focus {
+                    outline: none;
+                }
+            }
+            .search-btn {
+                @extend %btn-type-one;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .title {
+                font-size: 15px;
+                padding-top: 7px;
+            }
+            .search-col {
+                label {
+                }
+                .text-input {
+                    width: 100px;
+                    background-color: $light-blue;
+                }
+                .search-btn {
+                }
+            }
+        }
+    }
+}
+
+/**
+* Re usable button style
+*/
+%btn-type-one {
+    height: 30px;
+    background-color: $blue;
+    color: white;
+    border: 0px;
+    border-radius: 4px;
+    font-size: 10px;
+    width: 75px;
+    font-weight: map-get($font-weights, "medium");
+    padding-top: 3px;
+    cursor: pointer;
+}

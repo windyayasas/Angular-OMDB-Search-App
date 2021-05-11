@@ -1,0 +1,82 @@
+@import "./../../../assets/css/colors.scss";
+@import "./../../../assets/css/extend.scss";
+
+//Defined font weights
+$width-sizes: (
+    "card-web": calc(100% - 20px),
+    "card-mobile": 100%,
+    "right-col": calc(100% - 155px),
+    "left-col": 155px,
+    "lbl-col": calc(100% - 75px)
+);
+
+.card {
+    background-color: $header-bg-white;
+    width: map-get($width-sizes, "card-web");
+    margin: 10px 10px;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    box-shadow: 0px 1px 9px 0px $box-shadow-gray;
+    @media (max-width: 992px) {
+        width: map-get($width-sizes, "card-mobile");
+    }
+    &.full {
+        width: map-get($width-sizes, "card-web");
+    }
+    .img-col {
+        width: map-get($width-sizes, "left-col");
+        position: relative;
+        height: 233px;
+        overflow: hidden;
+        background-color: $medium-gray;
+        img {
+            width: 100%;
+        }
+    }
+    .right-col {
+        position: relative;
+        padding-top: 15px;
+        padding-right: 0px;
+        width: map-get($width-sizes, "right-col");
+        .detail-col {
+            min-height: 150px;
+            padding-left: 15px;
+            padding-bottom: 10px;
+            padding-right: 5px;
+            .title {
+                font-weight: map-get($font-weights, "medium");
+                font-size: 15px;
+                color: $ft-black;
+            }
+            .movie-label {
+                color: $label-gray;
+                font-size: 12px;
+                margin-top: 12px;
+            }
+            .movie-description {
+                font-weight: map-get($font-weights, "medium");
+                font-size: 15px;
+                color: $ft-black;
+                @media (max-width: 992px) {
+                    font-size: 13px;
+                }
+            }
+        }
+        .bottom-col {
+            border-top: 1px solid $light-gray;
+            padding: 15px;
+            height: 25px;
+            display: flex;
+            .lbl {
+                color: $label-light-gray;
+                font-size: 15px;
+                margin-top: 5px;
+                width: map-get($width-sizes, "lbl-col");
+            }
+            .detail-btn {
+                @extend %btn-type-one;
+            }
+        }
+    }
+}

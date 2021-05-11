@@ -1,0 +1,24 @@
+<div class="outer-container" (scroll)="this.onScroll()" id="scrollContent" #scrollContent>
+    <!-- Header section -->
+    <app-header [inputSearchKey]="this.searchKey" (onSearchEvent)="this.onSearch($event)"></app-header>
+    <!-- Main container-->
+    <div class="container">
+        <div class="record-stat" *ngIf="this.totalResults != null && this.movieList.length > 0">
+            Total Movies: {{this.totalResults}}
+        </div>
+        <div class="init-screen" *ngIf="this.initScreen == true">
+            Welcome to OMDB Search, search something in the bar above !
+        </div>
+        <div class="error-screen" *ngIf="this.error">
+            {{this.error}}
+        </div>
+
+        <!--Iterate movies-->
+        <div class="list-col" *ngIf="this.movieList.length > 0">
+            <app-movie-card [ngClass]="{'card-outer':true,'full':this.selectedMovieIndex == i }"
+                *ngFor="let movie of this.movieList; index as i; first as isFirst" [movie]="movie"
+                (onSelectMovie)="this.getMovieDetails($event, i)"></app-movie-card>
+
+        </div>
+    </div>
+</div>

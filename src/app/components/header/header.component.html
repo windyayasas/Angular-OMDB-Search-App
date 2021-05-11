@@ -1,0 +1,17 @@
+<div class="header">
+    <div class="header-mid">
+        <h3 class="title">
+            OMDB Search
+        </h3>
+        <form [formGroup]="searchForm" class="search-col" (ngSubmit)="this.onSearch()">
+            <label class="web">
+                Search a movie
+            </label>
+            <input type="text" class="text-input" formControlName="searchKey">
+            <button class="search-btn" type="submit" [disabled]="!searchForm.valid">
+                SEARCH
+            </button>
+        </form>
+    </div>
+
+</div>

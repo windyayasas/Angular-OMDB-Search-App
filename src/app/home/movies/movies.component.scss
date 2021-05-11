@@ -1,0 +1,82 @@
+@import "./../../../assets/css/colors.scss";
+@import "./../../../assets/css/extend.scss";
+
+//Defined font weights
+$width-sizes: ("full": 100%, "full-mobile":calc(100% - 16px) , "card-half":50%,"card-mobile":calc(100vw - 35px));
+
+.outer-container {
+    height: calc(100vh - 16px);
+    width:  map-get($width-sizes, "full");;
+    overflow-y: scroll;
+    position: fixed;
+}
+.header {
+    @extend %header-col;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    position: relative;
+    padding-top: 100px;
+    .init-screen {
+        width: map-get($width-sizes, "full");
+        font-weight: map-get($font-weights, "medium");
+        font-size: 18px;
+        text-align: center;
+        padding: 32px 0px;
+        background-color: $medium-gray;
+        color: $black;
+        border: 1px dashed $light-gray;
+        @media (max-width: 992px) {
+            width:  map-get($width-sizes, "full-mobile");
+            margin: auto;
+            margin-left: 0px;
+        }
+    }
+    .error-screen {
+        width:  map-get($width-sizes, "full");;
+        font-weight: map-get($font-weights, "medium");;
+        font-size: 18px;
+        text-align: center;
+        padding: 32px 0px;
+        background-color: $light-red;
+        color: $red;
+        border: 1px dashed $red;
+        @media (max-width: 992px) {
+            width: map-get($width-sizes, "full-mobile");
+            margin: auto;
+            margin-left: 0px;
+        }
+    }
+    .record-stat {
+        width: map-get($width-sizes, "full");;
+        font-weight: map-get($font-weights, "regular");;
+        font-size: 12px;
+        text-align: center;
+        padding-bottom: 12px;
+        @media (max-width: 992px) {
+            width: map-get($width-sizes, "full-mobile");
+            margin: auto;
+            margin-left: 0px;
+        }
+    }
+    .list-col {
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+
+        .card-outer {
+            width:  map-get($width-sizes, "card-half");;
+            @media (max-width: 992px) {
+                width:  map-get($width-sizes, "card-mobile");
+            }
+            &.full {
+                width:  map-get($width-sizes, "full");
+                @media (max-width: 992px) {
+                    width:  map-get($width-sizes, "card-mobile");
+                }
+            }
+        }
+    }
+}
